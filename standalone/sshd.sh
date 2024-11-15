@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-#5.1.1 Ensure permissions on /etc/ssh/sshd_config are configured
-
 check_root() {
   local uuid
   uuid=$(id -u)
@@ -13,6 +11,7 @@ check_root() {
   fi
 }
 
+#5.1.1 Ensure permissions on /etc/ssh/sshd_config are configured
 
 ensure_permissions_sshd_config() {
    chmod u-x,og-rwx /etc/ssh/sshd_config
