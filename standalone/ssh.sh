@@ -2,10 +2,18 @@
 
 set -euo pipefail
 
-#5.1.1 Ensure permissions on /etc/ssh/sshd_config are configured
+# shellcheck disable=SC1091
+source ../lib/common_check_root.sh
 
 # shellcheck disable=SC1091
-source ../common.sh
+source ../lib/common_error_handling.sh
+
+
+#5.1.1 Ensure permissions on /etc/ssh/sshd_config are configured
+CIS_CODE="#5.1.1"
+
+setup_error_trap "$CIS_CODE"
+
 
 ensure_permissions_sshd_config() {
     chmod u-x,og-rwx /etc/ssh/sshd_config
@@ -22,6 +30,6 @@ ensure_permissions_sshd_config() {
 
 
 main () {
-    check_root #common.sh
+    check_root
     ensure_permissions_sshd_config
 }

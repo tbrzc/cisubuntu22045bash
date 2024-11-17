@@ -4,7 +4,7 @@
 set -euo pipefail
 
 # shellcheck disable=SC1091
-source ./common.sh
+source ./lib/common_check_root.sh
 
 standalone_hardening_scripts() {
 
@@ -14,12 +14,6 @@ standalone_hardening_scripts() {
 
 
 main() {
-    check_root #common.sh
+    check_root
     standalone_hardening_scripts
 }
-
-
-# Only call main if this script is executed, not sourced/imported
-if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-    main
-fi
