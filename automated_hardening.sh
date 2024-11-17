@@ -17,3 +17,4 @@ main() {
     check_root
     standalone_hardening_scripts
 }
+main

@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
-
+# shellcheck disable=SC2148
 handle_error() {
     local last_command="$1"
     local exit_code="$2"
@@ -11,7 +9,6 @@ handle_error() {
     exit "${exit_code}"
 }
 
-# Configuración de 'trap' para capturar errores
 setup_error_trap() {
     trap 'handle_error "$BASH_COMMAND" "$?" "${CIS_CODE}"' ERR
 }

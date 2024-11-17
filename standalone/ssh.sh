@@ -5,10 +5,10 @@ set -euo pipefail
 start_time=$(date +%s%3N)
 
 # shellcheck disable=SC1091
-source ../lib/common_check_root.sh
+source ./lib/common_check_root.sh
 
 # shellcheck disable=SC1091
-source ../lib/common_error_handling.sh
+source ./lib/common_error_handling.sh
 
 
 #5.1.1 Ensure permissions on /etc/ssh/sshd_config are configured
@@ -41,3 +41,4 @@ main () {
 
     echo "$CIS_CODE: OK, $elapsed_time ms"
 }
+main

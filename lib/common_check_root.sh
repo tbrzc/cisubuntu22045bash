@@ -1,4 +1,4 @@
-#!/bin/sh
+# shellcheck disable=SC2148
 
 check_root() {
     uuid=$(id -u)
