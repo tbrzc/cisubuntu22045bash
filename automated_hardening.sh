@@ -9,7 +9,7 @@ source ./lib/common_check_root.sh
 standalone_hardening_scripts() {
 
     # shellcheck disable=SC1091
-    source standalone/ssh.sh
+    source standalone/ssh.sh #5.1.1
 }
 
 
