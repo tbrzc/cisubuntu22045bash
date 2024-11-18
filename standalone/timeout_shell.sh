@@ -30,11 +30,15 @@ time_in_shell() {
         if [ "$TMOUT" -eq 0 ]; then
             echo "Error: El valor de TMOUT en $archivo no puede ser igual a 0."
             return 1
-            elif [ "$TMOUT" -gt "$MAX_TMOUT" ]; then
+        elif [ "$TMOUT" -gt "$MAX_TMOUT" ]; then
             echo "Error: El valor de TMOUT en $archivo no puede exceder los $MAX_TMOUT segundos."
             return 1
         else
             # Configurar TMOUT
+            if [ ! -w "$archivo" ]; then
+                echo "Advertencia: No se puede escribir en $archivo. Omitido."
+                return 1
+            fi
             sed -i "/^export TMOUT=/d" "$archivo"
             echo "export TMOUT=$TMOUT" >> "$archivo"
             echo "TMOUT se ha configurado correctamente en $archivo a $TMOUT s"
@@ -42,18 +46,17 @@ time_in_shell() {
     }
 
     # Buscar archivos .sh y configurar TMOUT en cada uno
-    buscar_y_configurar_TMOUT() {
-        archivos_sh=$(find "$DIRECTORIO" -type f -name "*.sh")
-        for archivo in $archivos_sh; do
+     buscar_y_configurar_TMOUT() {
+        find "$DIRECTORIO" -type f -name "*.sh" | while IFS= read -r archivo; do
             TMOUT=$(grep -E '^export TMOUT=' "$archivo" | awk -F'=' '{print $2}')
             if [ -n "$TMOUT" ]; then
                 configurar_TMOUT "$archivo" "$TMOUT"
             else
-                # Si no existe export TMOUT, añadirlo con valor predeterminado
                 configurar_TMOUT "$archivo" 300
             fi
         done
     }
+    buscar_y_configurar_TMOUT
 }
 
 

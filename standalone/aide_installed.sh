@@ -11,7 +11,6 @@ source ./lib/common_check_root.sh
 source ./lib/common_error_handling.sh
 
 
-#5.1.1 Ensure permissions on /etc/ssh/sshd_config are configured
 CIS_CODE="6.1.1"
 
 setup_error_trap "$CIS_CODE"
@@ -19,7 +18,6 @@ setup_error_trap "$CIS_CODE"
 
 ensure_aide_is_installed() {
     apt install aide aide-common -y
-    aideinit
     mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 }
 
