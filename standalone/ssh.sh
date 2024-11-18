@@ -10,8 +10,7 @@ source ./lib/common_check_root.sh
 # shellcheck disable=SC1091
 source ./lib/common_error_handling.sh
 
-
-#5.1.1 Ensure permissions on /etc/ssh/sshd_config are configured
+#5.1.1  permissions on /etc/ssh/sshd_config are configured
 CIS_CODE="5.1.1"
 
 setup_error_trap "$CIS_CODE"
