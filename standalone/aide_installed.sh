@@ -12,28 +12,21 @@ source ./lib/common_error_handling.sh
 
 
 #5.1.1 Ensure permissions on /etc/ssh/sshd_config are configured
-CIS_CODE="5.1.1"
+CIS_CODE="6.1.1"
 
 setup_error_trap "$CIS_CODE"
 
 
-ensure_permissions_sshd_config() {
-    chmod u-x,og-rwx /etc/ssh/sshd_config
-    chown root:root /etc/ssh/sshd_config
-
-    # while IFS= read -r -d $'\0' l_file; do
-    #    if [ -e "$l_file" ]; then
-    #       chmod u-x,og-rwx "$l_file"
-    #       chown root:root "$l_file"
-    #    fi
-    # done < <(find /etc/ssh/sshd_config.d -type f -print0 2>/dev/null)
-
+ensure_aide_is_installed() {
+    apt install aide aide-common -y
+    aideinit
+    mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 }
 
 
 main () {
     check_root
-    ensure_permissions_sshd_config
+    ensure_aide_is_installed
 
     #time tracking
     end_time=$(date +%s%3N)

@@ -12,28 +12,25 @@ source ./lib/common_error_handling.sh
 
 
 #5.1.1 Ensure permissions on /etc/ssh/sshd_config are configured
-CIS_CODE="5.1.1"
+CIS_CODE="3.3.7"
 
 setup_error_trap "$CIS_CODE"
 
 
-ensure_permissions_sshd_config() {
-    chmod u-x,og-rwx /etc/ssh/sshd_config
-    chown root:root /etc/ssh/sshd_config
+path_filtering_is_enabled() {
+    #sysctl -w net.ipv4.conf.all.rp_filter=1
+    #sysctl -w net.ipv4.conf.default.rp_filter=1
+    #sysctl -w net.ipv4.route.flush=1
 
-    # while IFS= read -r -d $'\0' l_file; do
-    #    if [ -e "$l_file" ]; then
-    #       chmod u-x,og-rwx "$l_file"
-    #       chown root:root "$l_file"
-    #    fi
-    # done < <(find /etc/ssh/sshd_config.d -type f -print0 2>/dev/null)
-
+    echo "sysctl -w net.ipv4.conf.all.rp_filter=1" >> /etc/sysctl.conf
+    echo "sysctl -w net.ipv4.conf.default.rp_filter=1" >> /etc/sysctl.conf
+    sysctl -p
 }
 
 
 main () {
     check_root
-    ensure_permissions_sshd_config
+    path_filtering_is_enabled
 
     #time tracking
     end_time=$(date +%s%3N)

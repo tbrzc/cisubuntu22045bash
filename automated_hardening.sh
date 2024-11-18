@@ -10,6 +10,11 @@ standalone_hardening_scripts() {
 
     # shellcheck disable=SC1091
     source standalone/ssh.sh #5.1.1
+    # shellcheck disable=SC1091
+    source standalone/aide_installed.sh #6.1.1
+
+    # shellcheck disable=SC1091
+    source standalone/reverse_path_filtering.sh #3.3.7
 }
 
 
