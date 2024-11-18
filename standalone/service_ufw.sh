@@ -11,7 +11,6 @@ source ./lib/common_check_root.sh
 source ./lib/common_error_handling.sh
 
 
-#5.1.1 Ensure permissions on /etc/ssh/sshd_config are configured
 CIS_CODE="3.5.1.3"
 
 setup_error_trap "$CIS_CODE"
