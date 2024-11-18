@@ -17,10 +17,10 @@ standalone_hardening_scripts() {
     source standalone/reverse_path_filtering.sh #3.3.7
 
     # shellcheck disable=SC1091
-    source standalone/timeout_shell.sh #
+    source standalone/timeout_shell.sh #5.5.5
 
     # shellcheck disable=SC1091
-    source standalone/service_ufw.sh #5.1.1
+    source standalone/service_ufw.sh #3.5.1.3
 }
 
 

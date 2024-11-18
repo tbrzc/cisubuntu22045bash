@@ -18,6 +18,7 @@ setup_error_trap "$CIS_CODE"
 
 ensure_aide_is_installed() {
     apt install aide aide-common -y
+    y || timeout 2 aideinit || echo "exiting init..."
     mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 }
 
