@@ -1,19 +1,13 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
 
 start_time=$(date +%s%3N)
 
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
 
-# shellcheck disable=SC1091
-source ./lib/common_error_handling.sh
-
-
 CIS_CODE="3.5.1.3"
 
-setup_error_trap "$CIS_CODE"
 
 
 DIRECTORIO="/etc/profile.d"
