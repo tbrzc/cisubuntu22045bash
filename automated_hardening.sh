@@ -48,6 +48,8 @@ standalone_hardening_scripts() {
     source standalone/sudo_log_file.sh #5.3.3
     # shellcheck disable=SC1091
     source standalone/apport_stop.sh #1.5.3
+    # shellcheck disable=SC1091
+    source standalone/auth_tries.sh #5.2.18
 
 }
 
