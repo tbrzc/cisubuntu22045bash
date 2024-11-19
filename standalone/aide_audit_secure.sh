@@ -18,6 +18,19 @@ setup_error_trap "$CIS_CODE"
 
 cryptographic_rules() {
 
+    echo /sbin/auditctl  p+i+n+u+g+s+b+acl+xattrs+sha512
+
+    /sbin/auditd    p+i+n+u+g+s+b+acl+xattrs+sha512
+
+    /sbin/ausearch  p+i+n+u+g+s+b+acl+xattrs+sha512
+
+    /sbin/aureport  p+i+n+u+g+s+b+acl+xattrs+sha512
+
+    /sbin/autrace   p+i+n+u+g+s+b+acl+xattrs+sha512
+
+    /sbin/augenrules p+i+n+u+g+s+b+acl+xattrs+sha512 >> /etc/audit/audit.conf
+
+    aide --update
 }
 
 
