@@ -59,4 +59,4 @@ main () {
 
     echo "$CIS_CODE: OK, $elapsed_time ms"
 }
-main
+main "$@" > log.txt 2>&1

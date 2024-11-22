@@ -6,7 +6,7 @@ set -euo pipefail
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
 
-standalone_hardening_scripts() {
+standalone_acces_control_scripts() {
 
     #----------------------------NOT ADDED-----------------------------
     #1.4.3
@@ -111,6 +111,6 @@ standalone_hardening_scripts() {
 
 main() {
     check_root
-    standalone_hardening_scripts
+    standalone_acces_control_scripts
 }
 main
