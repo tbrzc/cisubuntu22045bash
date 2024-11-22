@@ -40,12 +40,7 @@ standalone_hardening_scripts() {
     #4.1.4.8
     #3.3.8
     #------[ACCES CONTROL]----------------
-    #5.4.3
-    #5.2.14
     #5.5.1.4
-    #5.5.1.2
-    #5.1.7
-    #5.1.6
     #5.2.19
     #5.1.5
     #5.2.21
@@ -54,9 +49,7 @@ standalone_hardening_scripts() {
     #5.1.4
     #5.4.2
     #5.4.1
-    #5.4.4
-    #5.2.7
-    #5.1.8
+
 
     #----------------------------NOT AUTOMATIZED-------------------------------
     #5.2.4
@@ -78,7 +71,25 @@ standalone_hardening_scripts() {
     # shellcheck disable=SC1091
     source standalone/acces-control/sudo_log_file.sh #5.3.3
     # shellcheck disable=SC1091
-    source standalone/auth_tries.sh #5.2.18
+    source standalone/acces-control/auth_tries.sh #5.2.18
+    # shellcheck disable=SC1091
+    source standalone/acces-control/cron_authorized_users.sh #5.1.8
+    # shellcheck disable=SC1091
+    source standalone/acces-control/root_login.sh #5.2.7
+    # shellcheck disable=SC1091
+    source standalone/acces-control/password_reutility.sh #5.4.3
+    # shellcheck disable=SC1091
+    source standalone/acces-control/MAC_algorithm.sh #5.2.14
+    # shellcheck disable=SC1091
+    source standalone/acces-control/change_inactivity_days.sh #5.5.1.2
+    # shellcheck disable=SC1091
+    source standalone/acces-control/cron_permissions.sh #5.1.7
+    # shellcheck disable=SC1091
+    source standalone/acces-control/hash_algorithm.sh #5.4.4
+    # shellcheck disable=SC1091
+    source standalone/acces-control/cron_monthly.sh #5.1.6
+    # shellcheck disable=SC1091
+    source standalone/acces-control/ssh_max_startups.sh #5.2.19
 
     #--------------------------SCRIPT BACKLOG------------------------
 
