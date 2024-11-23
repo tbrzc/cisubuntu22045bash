@@ -10,7 +10,6 @@ SSHD_CONFIG="/etc/ssh/sshd_config"
 
 setup() {
     sed -i 's/^#MaxStartups .*/MaxStartups 10:30:60/' "$SSHD_CONFIG"
-    systemctl restart sshd
 }
 
 

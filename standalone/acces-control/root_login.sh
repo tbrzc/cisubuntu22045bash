@@ -14,7 +14,6 @@ setup() {
     if grep -q "^#PermitRootLogin" "$SSHD_CONFIG"; then #if the parameter exists
         sed -i 's/^#*PermitRootLogin .*/PermitRootLogin no/' "$SSHD_CONFIG"
 
-        systemctl restart sshd
     fi
 }
 

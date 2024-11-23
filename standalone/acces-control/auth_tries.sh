@@ -18,7 +18,6 @@ setup() {
     else
         echo "$MAX_AUTH_TRIES" >> "$SSHD_CONFIG"
     fi
-    systemctl restart sshd
 }
 
 

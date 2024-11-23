@@ -85,11 +85,8 @@ standalone_acces_control_scripts() {
 
     #------[NOT TESTED]--------
 
-    # shellcheck disable=SC1091
-    source standalone/acces-control/timeout_shell.sh #5.5.5
-
-    # shellcheck disable=SC1091
-    source standalone/acces-control/failed_attemps.sh #5.4.2
+    #source standalone/acces-control/timeout_shell.sh #5.5.5
+    #source standalone/acces-control/failed_attemps.sh #5.4.2
 
 
     #--------------------------SCRIPT BACKLOG------------------------
@@ -107,6 +104,7 @@ standalone_acces_control_scripts() {
     #source standalone/aide_installed.sh #6.1.1
 
     #source standalone/reverse_path_filtering.sh #3.3.7
+    systemctl restart sshd
 }
 
 

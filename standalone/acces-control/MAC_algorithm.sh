@@ -13,7 +13,6 @@ CIS_CODE="5.2.14"
 
 setup() {
     echo "$NEW_LINE" >> "$SSHD_CONFIG"
-    systemctl restart sshd
 }
 
 
