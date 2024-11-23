@@ -9,7 +9,6 @@ source ./lib/common_check_root.sh
 
 CIS_CODE="5.1.3"
 
-setup_error_trap "$CIS_CODE"
 
 
 setup() {
@@ -22,6 +21,6 @@ main () {
     check_root
     echo "----------| Start $CIS_CODE |----------"
     setup
-    echo "---------------------------------------"
+    echo "-----------------------------------"
 }
 main "$@" >> log.txt 2>&1
