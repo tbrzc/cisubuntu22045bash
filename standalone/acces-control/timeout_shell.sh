@@ -4,20 +4,25 @@ set -euo pipefail
 
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
-# shellcheck disable=SC1091
-source ./lib/common_error_handling.sh
 
-CIS_CODE="3.5.1.3"
-setup_error_trap "$CIS_CODE"
+CIS_CODE="3.5.1.3" # <-- Cambiar por el código CIS correspondiente
+
+handle_error() {
+    local CIS_CODE="$1"
+    local log_file="log.txt"
+
+    echo "${CIS_CODE}: NOT OK" | tee -a "$log_file"
+}
+
+trap 'handle_error "$CIS_CODE"' ERR
+#---------------------------------------------------------
 
 
-
-
-
+# Variables
 DIRECTORIO="/etc/profile.d"
-
 MAX_TMOUT=900
 
+# Functions
 configurar_TMOUT() {
     archivo="$1"
     TMOUT="$2"
@@ -40,7 +45,8 @@ configurar_TMOUT() {
     fi
 }
 
-buscar_y_configurar_TMOUT() {
+# setup and main functions
+setup() {
     find "$DIRECTORIO" -type f -name "*.sh" | while IFS= read -r archivo; do
         TMOUT=$(grep -E '^export TMOUT=' "$archivo" | awk -F'=' '{print $2}')
         if [ -n "$TMOUT" ]; then
@@ -51,11 +57,9 @@ buscar_y_configurar_TMOUT() {
     done
 }
 
-
-
 main () {
     check_root
-    buscar_y_configurar_TMOUT
+    setup
 
     echo "$CIS_CODE: OK"
 }
