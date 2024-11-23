@@ -4,7 +4,7 @@
 source ./lib/common_check_root.sh
 
 
-SSH_CONFIG="/etc/pam.d/common-password"
+SSHD_CONFIG="/etc/ssh/sshd_config"
 NEW_LINE="MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256"
 CIS_CODE="5.2.14"
 
@@ -12,9 +12,7 @@ CIS_CODE="5.2.14"
 
 
 setup() {
-    if ! grep -q "^$NEW_LINE" "$SSH_CONFIG"; then
-        echo "$NEW_LINE" >> "$SSH_CONFIG"
-    fi
+    echo "$NEW_LINE" >> "$SSHD_CONFIG"
     systemctl restart sshd
 }
 

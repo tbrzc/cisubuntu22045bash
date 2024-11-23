@@ -8,16 +8,15 @@ source ./lib/common_check_root.sh
 
 
 CIS_CODE="5.2.18"
-SSH_CONFIG="/etc/ssh/sshd_config"
+SSHD_CONFIG="/etc/ssh/sshd_config"
 MAX_AUTH_TRIES="MaxAuthTries 4"
-setup_error_trap "$CIS_CODE"
 
 
 setup() {
-    if grep -q "^MaxAuthTries" "$SSH_CONFIG"; then #if the parameter exists
-        sed -i "s/^MaxAuthTries.*/$MAX_AUTH_TRIES/" "$SSH_CONFIG"
+    if grep -q "^#MaxAuthTries" "$SSHD_CONFIG"; then #if the parameter exists
+        sed -i "s/^#*MaxAuthTries .*/$MAX_AUTH_TRIES/" "$SSHD_CONFIG"
     else
-        echo "$MAX_AUTH_TRIES" >> "$SSH_CONFIG"
+        echo "$MAX_AUTH_TRIES" >> "$SSHD_CONFIG"
     fi
     systemctl restart sshd
 }

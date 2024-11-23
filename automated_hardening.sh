@@ -49,9 +49,7 @@ standalone_acces_control_scripts() {
     #------[OK]----------------
 
     # shellcheck disable=SC1091
-    source standalone/acces-control/ssh.sh #5.1.1
-    # shellcheck disable=SC1091
-    source standalone/acces-control/timeout_shell.sh #5.5.5
+    source standalone/acces-control/sshd.sh #5.1.1
     # shellcheck disable=SC1091
     source standalone/acces-control/cron_hourly.sh #"5.1.3
     # shellcheck disable=SC1091
@@ -68,26 +66,31 @@ standalone_acces_control_scripts() {
     source standalone/acces-control/change_inactivity_days.sh #5.5.1.2
     # shellcheck disable=SC1091
     source standalone/acces-control/pam_pwquality.sh #5.4.1
-
-    #------[NOT TESTED]--------
     # shellcheck disable=SC1091
     source standalone/acces-control/sudo_log_file.sh #5.3.3
     # shellcheck disable=SC1091
-    source standalone/acces-control/auth_tries.sh #5.2.18
-    # shellcheck disable=SC1091
     source standalone/acces-control/root_login.sh #5.2.7
     # shellcheck disable=SC1091
-    source standalone/acces-control/password_reutility.sh #5.4.3
-    # shellcheck disable=SC1091
-    source standalone/acces-control/MAC_algorithm.sh #5.2.14
+    source standalone/acces-control/auth_tries.sh #5.2.18
     # shellcheck disable=SC1091
     source standalone/acces-control/hash_algorithm.sh #5.4.4
     # shellcheck disable=SC1091
     source standalone/acces-control/ssh_max_startups.sh #5.2.19
     # shellcheck disable=SC1091
-    source standalone/acces-control/failed_attemps.sh #5.4.2
+    source standalone/acces-control/password_reutility.sh #5.4.3
+    # shellcheck disable=SC1091
+    source standalone/acces-control/MAC_algorithm.sh #5.2.14
     # shellcheck disable=SC1091
     source standalone/acces-control/login_grace_time.sh #5.2.21
+
+    #------[NOT TESTED]--------
+
+    # shellcheck disable=SC1091
+    source standalone/acces-control/timeout_shell.sh #5.5.5
+
+    # shellcheck disable=SC1091
+    source standalone/acces-control/failed_attemps.sh #5.4.2
+
 
     #--------------------------SCRIPT BACKLOG------------------------
 

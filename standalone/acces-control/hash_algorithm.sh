@@ -18,7 +18,7 @@ setup() {
     if [ -f "$LOGIN_DEFS" ]; then
 
         if grep -q '^ENCRYPT_METHOD' "$LOGIN_DEFS"; then
-            sudo sed -i 's/^ENCRYPT_METHOD.*/ENCRYPT_METHOD yescrypt/' "$LOGIN_DEFS"
+            sudo sed -i 's/^ENCRYPT_METHOD .*/ENCRYPT_METHOD yescrypt/' "$LOGIN_DEFS"
         fi
     fi
 }

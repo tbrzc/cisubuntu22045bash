@@ -13,7 +13,7 @@ CIS_CODE="5.2.21"
 
 
 setup() {
-    sed -i '/^login_grace_time/ c\login_grace_time 60' /etc/ssh/sshd_config
+    sed -i 's/^#LoginGraceTime .*/LoginGraceTime 60/' "/etc/ssh/sshd_config"
 }
 
 

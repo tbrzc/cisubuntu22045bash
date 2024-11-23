@@ -12,9 +12,9 @@ CIS_CODE="5.4.3"
 
 
 setup() {
-    if ! grep -q "^$NEW_LINE" "$COMMON_PASSWORD"; then
-        echo "$NEW_LINE" >> "$COMMON_PASSWORD"
-    fi
+
+    echo "$NEW_LINE" >> "$COMMON_PASSWORD"
+
 }
 
 

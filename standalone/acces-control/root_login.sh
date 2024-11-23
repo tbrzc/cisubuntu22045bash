@@ -4,15 +4,15 @@
 source ./lib/common_check_root.sh
 
 
-MAX_AUTH_TRIES="PermitRootLogin no"
+
 CIS_CODE="5.2.7"
-SSH_CONFIG="/etc/ssh/sshd_config"
+SSHD_CONFIG="/etc/ssh/sshd_config"
 
 
 
 setup() {
-    if grep -q "^PermitRootLogin" "$SSH_CONFIG"; then #if the parameter exists
-        sed -i "s/^PermitRootLogin.*/$MAX_AUTH_TRIES/" "$SSH_CONFIG"
+    if grep -q "^#PermitRootLogin" "$SSHD_CONFIG"; then #if the parameter exists
+        sed -i 's/^#*PermitRootLogin .*/PermitRootLogin no/' "$SSHD_CONFIG"
 
         systemctl restart sshd
     fi
