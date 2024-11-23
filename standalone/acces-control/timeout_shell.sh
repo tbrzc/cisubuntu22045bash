@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
-
-start_time=$(date +%s%3N)
+set -euo pipefail
 
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
+# shellcheck disable=SC1091
+source ./lib/common_error_handling.sh
 
 CIS_CODE="3.5.1.3"
+setup_error_trap "$CIS_CODE"
+
+
 
 
 
@@ -53,10 +57,6 @@ main () {
     check_root
     buscar_y_configurar_TMOUT
 
-    #time tracking
-    end_time=$(date +%s%3N)
-    elapsed_time=$((end_time - start_time))
-
-    echo "$CIS_CODE: OK, $elapsed_time ms"
+    echo "$CIS_CODE: OK"
 }
-main "$@" > log.txt 2>&1
+main "$@" >> log.txt 2>&1

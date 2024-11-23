@@ -1,14 +1,13 @@
 # shellcheck disable=SC2148
 handle_error() {
-    local last_command="$1"
-    local exit_code="$2"
-    local CIS_CODE="$3"
+    local CIS_CODE="$1"
+    local log_file="log.txt"
 
-    echo "Error en ${CIS_CODE}: El comando '${last_command}' falló con código de salida ${exit_code}."
+    echo "${CIS_CODE}: NOT OK" | tee -a "$log_file"
 
-    exit "${exit_code}"
+
 }
 
 setup_error_trap() {
-    trap 'handle_error "$BASH_COMMAND" "$?" "${CIS_CODE}"' ERR
+    trap 'handle_error "${CIS_CODE}"' ERR
 }

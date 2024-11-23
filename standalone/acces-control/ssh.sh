@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-start_time=$(date +%s%3N)
+
 
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
@@ -34,10 +34,8 @@ main () {
     check_root
     ensure_permissions_sshd_config
 
-    #time tracking
-    end_time=$(date +%s%3N)
-    elapsed_time=$((end_time - start_time))
 
-    echo "$CIS_CODE: OK, $elapsed_time ms"
+
+    echo "$CIS_CODE: OK"
 }
-main "$@" > log.txt 2>&1
+main "$@" >> log.txt 2>&1
