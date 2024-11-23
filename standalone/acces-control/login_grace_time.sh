@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
 
 
 
-CIS_CODE="5.1.7"
 
+CIS_CODE="5.2.21"
 
 
 
 setup() {
-    chown root:root /etc/cron.d
-    chmod og-rwx /etc/cron.d
+    sed -i '/^login_grace_time/ c\login_grace_time 60' /etc/ssh/sshd_config
 }
 
 

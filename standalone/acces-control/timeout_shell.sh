@@ -5,18 +5,7 @@ set -euo pipefail
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
 
-CIS_CODE="3.5.1.3" # <-- Cambiar por el código CIS correspondiente
-
-handle_error() {
-    local CIS_CODE="$1"
-    local log_file="log.txt"
-
-    echo "${CIS_CODE}: NOT OK" | tee -a "$log_file"
-}
-
-trap 'handle_error "$CIS_CODE"' ERR
-#---------------------------------------------------------
-
+CIS_CODE="3.5.1.3"
 
 # Variables
 DIRECTORIO="/etc/profile.d"
@@ -59,8 +48,8 @@ setup() {
 
 main () {
     check_root
+    echo "----------| Start $CIS_CODE |----------"
     setup
-
-    echo "$CIS_CODE: OK"
+    echo "---------------------------------------"
 }
 main "$@" >> log.txt 2>&1

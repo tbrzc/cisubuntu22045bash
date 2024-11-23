@@ -17,6 +17,7 @@ standalone_acces_control_scripts() {
     #1.5.1
     #1.5.4
     #1.1.2.3
+    #5.5.1.4 ----> Not sure if its audit by rapid7
     #----------------------------TO DO---------------------------------
     #3.3.9
     #1.6.1.2
@@ -40,19 +41,9 @@ standalone_acces_control_scripts() {
     #4.1.4.8
     #3.3.8
     #------[ACCES CONTROL]----------------
-    #5.5.1.4
-    #5.2.19
-    #5.1.5
-    #5.2.21
     #5.3.7
     #5.5.4
     #5.1.4
-    #5.4.2
-    #5.4.1
-
-
-    #----------------------------NOT AUTOMATIZED-------------------------------
-    #5.2.4
 
     #--------------------------[5. ACCES CONTROL]------------------------
     #------[OK]----------------
@@ -90,6 +81,14 @@ standalone_acces_control_scripts() {
     source standalone/acces-control/cron_monthly.sh #5.1.6
     # shellcheck disable=SC1091
     source standalone/acces-control/ssh_max_startups.sh #5.2.19
+    # shellcheck disable=SC1091
+    source standalone/acces-control/cron_weekly.sh #5.1.5
+    # shellcheck disable=SC1091
+    source standalone/acces-control/pam_pwquality.sh #5.4.1
+    # shellcheck disable=SC1091
+    source standalone/acces-control/failed_attemps.sh #5.4.2
+    # shellcheck disable=SC1091
+    source standalone/acces-control/login_grace_time.sh #5.2.21
 
     #--------------------------SCRIPT BACKLOG------------------------
 

@@ -1,18 +1,23 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
 
 
 
-CIS_CODE="5.1.7"
 
+CIS_CODE="5.4.1"
 
 
 
 setup() {
-    chown root:root /etc/cron.d
-    chmod og-rwx /etc/cron.d
+    apt install libpam-pwquality -y
+    {
+        echo "minlen = 14"
+        echo "minclass = 4"
+    } >> /etc/security/pwquality.conf
 }
 
 
