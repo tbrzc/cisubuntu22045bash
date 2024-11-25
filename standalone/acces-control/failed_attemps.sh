@@ -22,7 +22,7 @@ setup() {
     grep -q "pam_faillock.so authsucc" $AUTH_FILE || echo "auth sufficient pam_faillock.so authsucc" >> $AUTH_FILE
 
     #ACCOUNT
-    grep -q "pam_faillock.so" $ACCOUNT_FILE || echo "account required pam_faillock.so" >> $ACCOUNT_FILE
+    echo "account required pam_faillock.so" >> $ACCOUNT_FILE
 
     #FAILLOCK
     {
