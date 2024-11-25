@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+#set -euo pipefail
 
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
