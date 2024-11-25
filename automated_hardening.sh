@@ -82,9 +82,10 @@ standalone_acces_control_scripts() {
 
 
     #------[NOT TESTED]--------
-
-    #source standalone/acces-control/timeout_shell.sh #5.5.5
-    #source standalone/acces-control/failed_attemps.sh #5.4.2
+    # shellcheck disable=SC1091
+    source standalone/acces-control/timeout_shell.sh #5.5.5
+    # shellcheck disable=SC1091
+    source standalone/acces-control/failed_attemps.sh #5.4.2
     # shellcheck disable=SC1091
     source standalone/acces-control/cron_daily.sh #5.1.4
     # shellcheck disable=SC1091
