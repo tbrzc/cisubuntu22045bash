@@ -15,7 +15,7 @@ setup() {
 
 main () {
     check_root
-    echo "----------| Start $CIS_CODE |----------"
+    echo "----------| Start $CIS_CODE |---------"
     setup
     echo "-----------------------------------"
 }

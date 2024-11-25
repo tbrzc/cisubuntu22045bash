@@ -110,6 +110,7 @@ standalone_acces_control_scripts() {
 
     #source standalone/reverse_path_filtering.sh #3.3.7
     systemctl restart sshd
+    echo "----------| Finished ACCES CONTROL |---------"
 }
 
 
