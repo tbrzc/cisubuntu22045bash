@@ -5,7 +5,7 @@ set -euo pipefail
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
 
-CIS_CODE="3.5.1.3"
+CIS_CODE="5.5.5"
 
 # Variables
 DIRECTORIO="/etc/profile.d"

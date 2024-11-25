@@ -9,8 +9,7 @@ CIS_CODE="5.3.7"
 
 setup() {
     groupadd sugroup
-    sed -i 's/^#auth required pam_wheel.so.*/auth required pam_wheel.so use_uid group=sugroup/' "/etc/pam.d/su"
-
+    sed -i '/^#\s*auth\s\+required\s\+pam_wheel.so\s*deny.*/a auth required pam_wheel.so use_uid group=sugroup' "/etc/pam.d/su"
 }
 
 
