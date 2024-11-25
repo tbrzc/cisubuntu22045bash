@@ -1,6 +1,6 @@
 | #  | Punto CIS | Descripción | Script |
 |----|-----------|-------------|--------|
-| 1  | 5.1.1     | Asegurar permisos en `/etc/ssh/sshd_config` | [`standalone/sshd.sh`](standalone/sshd.sh) |
+| 1  | 5.1.1     | Asegurar permisos en `/etc/ssh/sshd_config` | [`standalone/acces-control/sshd.sh`](standalone/acces-control/sshd.sh) |
 | 2  | 5.1.2     | Asegurar permisos en `/etc/crontab` | [`standalone/acces-control/crontab_permissions.sh`](standalone/acces-control/crontab_permissions.sh) |
 | 3  | 5.1.3     | Asegurar permisos en `/etc/cron.hourly` | [`standalone/acces-control/cron_hourly.sh`](standalone/acces-control/cron_hourly.sh) |
 | 4  | 5.1.5     | Asegurar permisos en `/etc/cron.weekly` | [`standalone/acces-control/cron_weekly.sh`](standalone/acces-control/cron_weekly.sh) |
