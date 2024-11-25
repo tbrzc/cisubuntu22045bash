@@ -41,9 +41,6 @@ standalone_acces_control_scripts() {
     #4.1.4.8
     #3.3.8
     #------[ACCES CONTROL]----------------
-    #5.3.7
-    #5.5.4
-    #5.1.4
 
     #--------------------------[5. ACCES CONTROL]------------------------
     #------[OK]----------------
@@ -83,10 +80,17 @@ standalone_acces_control_scripts() {
     # shellcheck disable=SC1091
     source standalone/acces-control/login_grace_time.sh #5.2.21
 
+
     #------[NOT TESTED]--------
 
     #source standalone/acces-control/timeout_shell.sh #5.5.5
     #source standalone/acces-control/failed_attemps.sh #5.4.2
+    # shellcheck disable=SC1091
+    source standalone/acces-control/cron_daily.sh #5.1.4
+    # shellcheck disable=SC1091
+    source standalone/acces-control/user_mask.sh #5.5.4
+    # shellcheck disable=SC1091
+    source standalone/acces-control/user_mask.sh #5.3.7
 
 
     #--------------------------SCRIPT BACKLOG------------------------
