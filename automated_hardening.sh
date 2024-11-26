@@ -6,42 +6,38 @@ set -euo pipefail
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
 
+standalone_initial_setup() {
+    # shellcheck disable=SC1091
+    source standalone/apport_stop.sh #1.5.3
+}
+standalone_services() {
+    # shellcheck disable=SC1091
+    source standalone/purge_telnet.sh #2.3.4
+    # shellcheck disable=SC1091
+    source standalone/rsync_unistall.sh #2.2.16
+
+}
+standalone_network_configuration() {
+    # shellcheck disable=SC1091
+    source standalone/reverse_path_filtering.sh #3.3.7
+    # shellcheck disable=SC1091
+    source standalone/service_ufw.sh #3.5.1.3
+}
+
+standalone_host_firewall() {
+    # shellcheck disable=SC1091
+    source standalone/aide_audit_secure.sh #4.1.4.11
+
+}
+
 standalone_acces_control_scripts() {
 
     #----------------------------NOT ADDED-----------------------------
-    #1.4.3
-    #1.4.2
-    #2.2.15
-    #1.1.8.2
-    #1.1.1.1
-    #1.5.1
-    #1.5.4
-    #1.1.2.3
     #5.5.1.4 ----> Not sure if its audit by rapid7
     #----------------------------TO DO---------------------------------
-    #3.3.9
-    #1.6.1.2
-    #4.2.1.3
-    #3.5.2.9
-    #3.5.1.4
-    #4.2.1.4
-    #1.1.8.3
-    #3.3.3
-    #3.2.2
-    #1.1.8.1
-    #1.1.2.2
-    #3.3.1
-    #1.1.2.4
-    #4.2.3
-    #3.5.1.6
-    #3.3.4
-    #3.5.2.6
-    #3.5.1.7
-    #3.5.3.3.1
-    #4.1.4.8
-    #3.3.8
-    #------[ACCES CONTROL]----------------
-
+    #5.5.1.1
+    #5.2.17
+    #5.2.1
     #--------------------------[5. ACCES CONTROL]------------------------
     #------[OK]----------------
 
@@ -90,32 +86,16 @@ standalone_acces_control_scripts() {
     # shellcheck disable=SC1091
     source standalone/acces-control/failed_attemps.sh #5.4.2
 
-    #------[NOT TESTED]--------
-
-
-
-    #--------------------------SCRIPT BACKLOG------------------------
-
-    #source standalone/apport_stop.sh #1.5.3
-
-    #source standalone/purge_telnet.sh #2.3.4
-
-    #source standalone/rsync_unistall.sh #2.2.16
-
-    #source standalone/aide_audit_secure.sh #4.1.4.11
-
-    #source standalone/service_ufw.sh #3.5.1.3
-
-    #source standalone/aide_installed.sh #6.1.1
-
-    #source standalone/reverse_path_filtering.sh #3.3.7
     systemctl restart sshd
     echo "----------| Finished ACCES CONTROL |---------"
 }
 
-
 main() {
     check_root
+    standalone_initial_setup
+    standalone_services
+    standalone_network_configuration
+    standalone_host_firewall
     standalone_acces_control_scripts
 }
 main
