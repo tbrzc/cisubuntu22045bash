@@ -16,7 +16,7 @@ CIS_CODE="1.5.3"
 
 setup() {
     sed -i 's/^enabled=1/enabled=0/' /etc/default/apport &&  systemctl stop apport.service && systemctl --now disable apport.service
-
+    apt purge apport -y
 }
 
 

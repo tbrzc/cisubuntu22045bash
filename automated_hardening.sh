@@ -6,30 +6,6 @@ set -euo pipefail
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
 
-standalone_initial_setup() {
-    # shellcheck disable=SC1091
-    source standalone/apport_stop.sh #1.5.3
-}
-standalone_services() {
-    # shellcheck disable=SC1091
-    source standalone/purge_telnet.sh #2.3.4
-    # shellcheck disable=SC1091
-    source standalone/rsync_unistall.sh #2.2.16
-
-}
-standalone_network_configuration() {
-    # shellcheck disable=SC1091
-    source standalone/reverse_path_filtering.sh #3.3.7
-    # shellcheck disable=SC1091
-    source standalone/service_ufw.sh #3.5.1.3
-}
-
-standalone_host_firewall() {
-    # shellcheck disable=SC1091
-    source standalone/aide_audit_secure.sh #4.1.4.11
-
-}
-
 standalone_acces_control_scripts() {
 
     #----------------------------NOT ADDED-----------------------------
@@ -78,8 +54,6 @@ standalone_acces_control_scripts() {
     # shellcheck disable=SC1091
     source standalone/acces-control/cron_daily.sh #5.1.4
     # shellcheck disable=SC1091
-    source standalone/acces-control/timeout_shell.sh #5.5.5
-    # shellcheck disable=SC1091
     source standalone/acces-control/user_mask.sh #5.5.4
     # shellcheck disable=SC1091
     source standalone/acces-control/limit_su.sh #5.3.7
@@ -88,7 +62,54 @@ standalone_acces_control_scripts() {
 
     systemctl restart sshd
     echo "----------| Finished ACCES CONTROL |---------"
+
+    # --------------------------[TESTING]------------------------
+    # shellcheck disable=SC1091
+    source standalone/acces-control/timeout_shell.sh #5.5.5
 }
+
+standalone_initial_setup() {
+    #----------------------------NOT ADDED-----------------------------
+    #1.1.8.2
+
+    # shellcheck disable=SC1091
+    source standalone/initial-setup/apport_stop.sh #1.5.3
+    # shellcheck disable=SC1091
+    source standalone/initial-setup/grub_config.sh #1.4.2
+    # shellcheck disable=SC1091
+    source standaloneinitial-setup//cramfs.sh #1.1.1.1
+    # shellcheck disable=SC1091
+    source standalone/initial-setup/grub_apparmor.sh #1.6.1.2
+    # shellcheck disable=SC1091
+    source standalone/initial-setup/core_dumps.sh #1.5.4
+    # shellcheck disable=SC1091
+    source standalone/initial-setup/asrl.sh ##1.5.1
+}
+standalone_services() {
+    # shellcheck disable=SC1091
+    source standalone/services/purge_telnet.sh #2.3.4
+    # shellcheck disable=SC1091
+    source standalone/services/rsync_unistall.sh #2.2.16
+
+}
+standalone_network_configuration() {
+    # shellcheck disable=SC1091
+    source standalone/network/reverse_path_filtering.sh #3.3.7
+    # shellcheck disable=SC1091
+    source standalone/network/service_ufw.sh #3.5.1.3
+}
+
+standalone_host_firewall() {
+    # shellcheck disable=SC1091
+    source standalone/host-firewall/aide_audit_secure.sh #4.1.4.11
+    # shellcheck disable=SC1091
+    source standalone/host-firewall/audit_tools.sh #4.1.4.8
+    # shellcheck disable=SC1091
+    source standalone/host-firewall/register_files.sh #4.2.3
+
+}
+
+
 
 main() {
     check_root
