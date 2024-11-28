@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # shellcheck disable=SC1091
-#source ./lib/common_check_root.sh
+source ./lib/common_check_root.sh
 
 CIS_CODE="5.5.5"
 
@@ -47,7 +47,7 @@ setup() {
 }
 
 main() {
-    #check_root
+    check_root
     echo "----------| Start $CIS_CODE |----------"
     setup
     echo "-----------------------------------"
