@@ -16,10 +16,10 @@ FAILLOCK_FILE="/etc/security/faillock.conf"
 
 setup() {
     #AUTH
-    grep -q "pam_faillock.so preauth" $AUTH_FILE || echo "auth required pam_faillock.so preauth" >> $AUTH_FILE
+    echo "auth required pam_faillock.so preauth" >> $AUTH_FILE # silent audit deny=5 unlock_time=900
     grep -q "pam_unix.so nullok" $AUTH_FILE || echo "auth [success=1 default=ignore] pam_unix.so nullok" >> $AUTH_FILE
-    grep -q "pam_faillock.so authfail" $AUTH_FILE || echo "auth [default=die] pam_faillock.so authfail" >> $AUTH_FILE
-    grep -q "pam_faillock.so authsucc" $AUTH_FILE || echo "auth sufficient pam_faillock.so authsucc" >> $AUTH_FILE
+    echo "auth [default=die] pam_faillock.so" >> $AUTH_FILE #authfail audit deny=5 unlock_time=900
+    echo "auth sufficient pam_faillock.so authsucc" >> $AUTH_FILE
 
     #ACCOUNT
     echo "account required pam_faillock.so" >> $ACCOUNT_FILE

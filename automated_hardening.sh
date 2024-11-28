@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+#SPECIAL THANKS TO TENABLE FOR THE AUDIT SCRIPTS
+#https://www.tenable.com/audits/items/search
+
 # Enforce strict mode for bash scripting to catch errors early
 set -euo pipefail
 
@@ -8,12 +11,11 @@ source ./lib/common_check_root.sh
 
 standalone_acces_control_scripts() {
 
-    #----------------------------NOT ADDED-----------------------------
-    #5.5.1.4 ----> Not sure if its audit by rapid7
     #----------------------------TO DO---------------------------------
     #5.5.1.1
     #5.2.17
     #5.2.1
+    #5.2.4
     #--------------------------[5. ACCES CONTROL]------------------------
     #------[OK]----------------
 
@@ -66,6 +68,8 @@ standalone_acces_control_scripts() {
     # --------------------------[TESTING]------------------------
     # shellcheck disable=SC1091
     source standalone/acces-control/timeout_shell.sh #5.5.5
+    # shellcheck disable=SC1091
+    source standalone/acces-control/inactive_password.sh #5.5.1.4 5.5.1.2
 }
 
 standalone_initial_setup() {
@@ -106,10 +110,10 @@ standalone_host_firewall() {
     source standalone/host-firewall/audit_tools.sh #4.1.4.8
     # shellcheck disable=SC1091
     source standalone/host-firewall/register_files.sh #4.2.3
+    # shellcheck disable=SC1091
+    source standalone/host-firewall/journald.sh #4.2.1.3 4.2.1.4
 
 }
-
-
 
 main() {
     check_root
@@ -118,5 +122,7 @@ main() {
     standalone_network_configuration
     standalone_host_firewall
     standalone_acces_control_scripts
+    # shellcheck disable=SC1091
+    source standalone/aide_installed.sh# 6.1.1
 }
 main
