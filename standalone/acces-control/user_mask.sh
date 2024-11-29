@@ -9,7 +9,7 @@ CIS_CODE="5.5.4"
 
 setup() {
     sed -i 's/^UMASK\s\+.*$/UMASK 027/' "/etc/login.defs"
-    sed -i 's/^USERGROUPS_ENAB .*/USERGROUPS_ENAB yes/' "/etc/login.defs"
+    sed -i 's/^USERGROUPS_ENAB .*/USERGROUPS_ENAB no/' "/etc/login.defs"
 }
 
 
