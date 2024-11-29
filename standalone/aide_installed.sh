@@ -15,7 +15,8 @@ CIS_CODE="6.1.1"
 
 
 setup() {
-    apt install aide aide-common -y || timeout 2 aideinit || echo "exiting aide..."
+    apt install aide aide-common -y #no configuration
+    aideinit
     mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 }
 

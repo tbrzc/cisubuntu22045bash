@@ -34,4 +34,4 @@ main() {
     check_root
     setup
 }
-main
+main "$@" >> log.txt 2>&1

@@ -12,6 +12,7 @@ var2="/etc/systemd/coredump.conf"
 
 setup() {
     echo "* hard core 0" >> $var1
+    # Check if systemd-coredump is installed
     if command -v systemd-coredump &> /dev/null; then
          {
             "Storage": "none",
@@ -25,4 +26,4 @@ main() {
     check_root
     setup
 }
-main
+main "$@" >> log.txt 2>&1
