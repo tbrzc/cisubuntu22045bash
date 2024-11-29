@@ -43,11 +43,12 @@ standalone_network_configuration() {
 
 standalone_host_firewall() {
     # shellcheck disable=SC1091
-    source standalone/host-firewall/aide_audit_secure.sh #4.1.4.11
+    source standalone/host-firewall/register_files.sh #4.2.3
     # shellcheck disable=SC1091
     source standalone/host-firewall/audit_tools.sh #4.1.4.8
+    # --------------------------[TESTING]------------------------
     # shellcheck disable=SC1091
-    source standalone/host-firewall/register_files.sh #4.2.3
+    source standalone/host-firewall/aide_audit_secure.sh #4.1.4.11
     # shellcheck disable=SC1091
     source standalone/host-firewall/journald.sh #4.2.1.3 | 4.2.1.4
 
