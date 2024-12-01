@@ -26,12 +26,15 @@ standalone_initial_setup() {
     source standalone/initial-setup/asrl.sh ##1.5.1
     # shellcheck disable=SC1091
     source standalone/initial-setup/noexec_option.sh #1.1.8.2
+    echo "----------| Finished INITIAL SETUP |---------"
+
 }
 standalone_services() {
     # shellcheck disable=SC1091
     source standalone/services/purge_telnet.sh #2.3.4
     # shellcheck disable=SC1091
     source standalone/services/rsync_unistall.sh #2.2.16
+    echo "----------| Finished SERVICES |---------"
 
 }
 standalone_network_configuration() {
@@ -39,6 +42,7 @@ standalone_network_configuration() {
     source standalone/network/reverse_path_filtering.sh #3.3.7
     # shellcheck disable=SC1091
     source standalone/network/service_ufw.sh #3.5.1.3
+    echo "----------| Finished METWORK |---------"
 }
 
 standalone_host_firewall() {
@@ -51,6 +55,7 @@ standalone_host_firewall() {
     source standalone/host-firewall/aide_audit_secure.sh #4.1.4.11
     # shellcheck disable=SC1091
     source standalone/host-firewall/journald.sh #4.2.1.3 | 4.2.1.4
+    echo "----------| Finished HOST FIREWALL |---------"
 
 }
 standalone_acces_control_scripts() {

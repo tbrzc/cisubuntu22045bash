@@ -22,6 +22,8 @@ setup() {
 
 main () {
     check_root
+    echo "----------| Start $CIS_CODE |----------"
     setup
+    echo "-----------------------------------"
 }
 main "$@" >> log.txt 2>&1
