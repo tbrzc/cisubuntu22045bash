@@ -9,9 +9,9 @@ CIS_CODE="3.3.1"
 
 setup() {
     {
-        echo "net.ipv4.conf.dafault.accept_source_route = 0"
+        echo "net.ipv4.conf.default.accept_source_route = 0"
         echo "net.ipv4.conf.all.accept_source_route = 0"
-        echo "net.ipv6.conf.dafault.accept_source_route = 0"
+        echo "net.ipv6.conf.default.accept_source_route = 0"
         echo "net.ipv6.conf.all.accept_source_route = 0"
     } >>/etc/sysctl.conf
 }
