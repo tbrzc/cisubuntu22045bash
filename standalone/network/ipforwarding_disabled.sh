@@ -8,8 +8,8 @@ source ./lib/common_check_root.sh
 CIS_CODE="3.2.2"
 
 setup() {
-    echo "net.ipv4.ip_forward = 0" >> /etc/sysctl.conf
-    echo "net.ipv6.conf.all.forwarding = 0" >> /etc/sysctl.conf
+    echo "net.ipv4.ip_forward = 0" >>/etc/sysctl.conf
+    echo "net.ipv6.conf.all.forwarding = 0" >>/etc/sysctl.conf
 }
 
 main() {

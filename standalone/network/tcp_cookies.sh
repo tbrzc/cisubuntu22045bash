@@ -8,7 +8,7 @@ source ./lib/common_check_root.sh
 CIS_CODE="3.3.8"
 
 setup() {
-    echo 'net.ipv4.tcp_syncookies = 1' >> /etc/sysctl.conf
+    echo 'net.ipv4.tcp_syncookies = 1' >>/etc/sysctl.conf
 }
 
 main() {

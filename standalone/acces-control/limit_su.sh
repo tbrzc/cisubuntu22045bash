@@ -5,18 +5,15 @@ source ./lib/common_check_root.sh
 
 CIS_CODE="5.3.7"
 
-
-
 setup() {
     groupadd sugroup
     sed -i '/^#\s*auth\s\+required\s\+pam_wheel.so\s*deny.*/a auth required pam_wheel.so use_uid group=sugroup' "/etc/pam.d/su"
 }
 
-
-main () {
+main() {
     check_root
     echo "----------| Start $CIS_CODE |----------"
     setup
     echo "-----------------------------------"
 }
-main "$@" >> log.txt 2>&1
+main "$@" >>log.txt 2>&1

@@ -9,8 +9,6 @@ set -euo pipefail
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
 
-
-
 standalone_initial_setup() {
     # shellcheck disable=SC1091
     source standalone/initial-setup/apport_stop.sh #1.5.3

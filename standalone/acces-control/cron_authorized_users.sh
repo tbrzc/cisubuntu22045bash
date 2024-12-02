@@ -5,10 +5,7 @@ source ./lib/common_check_root.sh
 
 CIS_CODE="5.1.8"
 
-
-
-
-setup (){
+setup() {
     if [ -f /etc/cron.deny ]; then
         rm /etc/cron.deny
     fi
@@ -21,12 +18,10 @@ setup (){
     chown root:root /etc/cron.allow
 }
 
-
-
-main () {
+main() {
     check_root
     echo "----------| Start $CIS_CODE |----------"
     setup
     echo "-----------------------------------"
 }
-main "$@" >> log.txt 2>&1
+main "$@" >>log.txt 2>&1

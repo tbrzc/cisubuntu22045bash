@@ -2,16 +2,10 @@
 
 set -euo pipefail
 
-
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
 
-
-
-
 CIS_CODE="3.5.1.3"
-
-
 
 setup() {
     systemctl unmask ufw.service
@@ -19,14 +13,11 @@ setup() {
     ufw enable
 }
 
-
-main () {
+main() {
     check_root
     echo "----------| Start $CIS_CODE |----------"
     setup
     echo "-----------------------------------"
 
-
-    
 }
-main "$@" >> log.txt 2>&1
+main "$@" >>log.txt 2>&1

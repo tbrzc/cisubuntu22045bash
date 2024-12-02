@@ -13,7 +13,7 @@ setup() {
         echo "net.ipv4.conf.all.accept_source_route = 0"
         echo "net.ipv6.conf.dafault.accept_source_route = 0"
         echo "net.ipv6.conf.all.accept_source_route = 0"
-    } >> /etc/sysctl.conf
+    } >>/etc/sysctl.conf
 }
 
 main() {

@@ -11,13 +11,13 @@ var1="/etc/security/limits.conf"
 var2="/etc/systemd/coredump.conf"
 
 setup() {
-    echo "* hard core 0" >> $var1
+    echo "* hard core 0" >>$var1
     # Check if systemd-coredump is installed
-    if command -v systemd-coredump &> /dev/null; then
-         {
+    if command -v systemd-coredump &>/dev/null; then
+        {
             "Storage": "none",
             "ProcessSizeMax": "0",
-        } > $var2
+        } >$var2
     fi
     systemctl daemon-reload
 }
@@ -28,4 +28,4 @@ main() {
     setup
     echo "-----------------------------------"
 }
-main "$@" >> log.txt 2>&1
+main "$@" >>log.txt 2>&1

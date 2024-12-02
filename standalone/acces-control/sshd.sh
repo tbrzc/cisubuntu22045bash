@@ -7,7 +7,6 @@ source ./lib/common_check_root.sh
 
 CIS_CODE="5.1.1"
 
-
 setup() {
     chmod u-x,og-rwx /etc/ssh/sshd_config
     chown root:root /etc/ssh/sshd_config
@@ -21,11 +20,10 @@ setup() {
 
 }
 
-
-main () {
+main() {
     check_root
     echo "----------| Start $CIS_CODE |----------"
     setup
     echo "-----------------------------------"
 }
-main "$@" >> log.txt 2>&1
+main "$@" >>log.txt 2>&1

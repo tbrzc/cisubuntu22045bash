@@ -14,7 +14,6 @@ setup() {
         sed -i "s/^\s*Compress\s*=.*/Compress=yes/" "$CONFIG_FILE"
         sed -i "s/^\s*Storage\s*=.*/Storage=persistent/" "$CONFIG_FILE"
 
-
     else
         echo "Compress=yes" >>"$CONFIG_FILE"
         echo "Storage=persistent" >>"$CONFIG_FILE"
@@ -31,4 +30,4 @@ main() {
     echo "-----------------------------------"
 
 }
-main "$@" >> log.txt 2>&1
+main "$@" >>log.txt 2>&1

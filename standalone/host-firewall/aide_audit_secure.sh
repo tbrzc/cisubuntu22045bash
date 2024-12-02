@@ -2,7 +2,6 @@
 
 set -euo pipefail
 
-
 #CIS_CODE="4.1.4.11"
 
 aide_conf() {

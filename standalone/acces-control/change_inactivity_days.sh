@@ -3,11 +3,7 @@
 # shellcheck disable=SC1091
 source ./lib/common_check_root.sh
 
-
-
 CIS_CODE="5.5.1.2"
-
-
 
 get_users() {
     cut -d: -f1 /etc/passwd
@@ -19,12 +15,10 @@ setup() {
     done
 }
 
-
-
-main () {
+main() {
     check_root
     echo "----------| Start $CIS_CODE |--------"
     setup
     echo "-----------------------------------"
 }
-main "$@" >> log.txt 2>&1
+main "$@" >>log.txt 2>&1

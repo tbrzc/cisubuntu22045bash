@@ -27,6 +27,6 @@ main() {
     check_root
     echo "----------| Start $CIS_CODE |----------"
     setup #bash: /dev/shm/test.sh: Permission denied
-    echo "-----------------------------------" 
+    echo "-----------------------------------"
 }
-main "$@" >> log.txt 2>&1
+main "$@" >>log.txt 2>&1
