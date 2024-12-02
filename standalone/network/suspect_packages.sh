@@ -9,16 +9,13 @@ source ./lib/common_check_root.sh
 
 
 
-CIS_CODE="3.3.7"
+CIS_CODE="3.3.4"
+
 
 
 setup() {
-    #sysctl -w net.ipv4.conf.all.rp_filter=1
-    #sysctl -w net.ipv4.conf.default.rp_filter=1
-    #sysctl -w net.ipv4.route.flush=1
-
-    echo "net.ipv4.conf.all.rp_filter=1" >> /etc/sysctl.conf
-    echo "net.ipv4.conf.default.rp_filter=1" >> /etc/sysctl.conf
+    echo "net.ipv4.conf.all.log_martians = 1" >> /etc/sysctl.conf
+    echo "net.ipv4.conf.default.log_martians = 1" >> /etc/sysctl.conf
 }
 
 
@@ -27,6 +24,7 @@ main () {
     echo "----------| Start $CIS_CODE |----------"
     setup
     echo "-----------------------------------"
+
 
     
 }

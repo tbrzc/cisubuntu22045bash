@@ -9,16 +9,15 @@ source ./lib/common_check_root.sh
 
 
 
-CIS_CODE="3.3.7"
+CIS_CODE="3.5.1.4"
+
 
 
 setup() {
-    #sysctl -w net.ipv4.conf.all.rp_filter=1
-    #sysctl -w net.ipv4.conf.default.rp_filter=1
-    #sysctl -w net.ipv4.route.flush=1
-
-    echo "net.ipv4.conf.all.rp_filter=1" >> /etc/sysctl.conf
-    echo "net.ipv4.conf.default.rp_filter=1" >> /etc/sysctl.conf
+    ufw allow in on lo
+    ufw allow out on lo
+    ufw deny in from 127.0.0.0/8
+    ufw deny in from ::1
 }
 
 
@@ -27,6 +26,7 @@ main () {
     echo "----------| Start $CIS_CODE |----------"
     setup
     echo "-----------------------------------"
+
 
     
 }

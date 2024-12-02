@@ -42,6 +42,16 @@ standalone_network_configuration() {
     source standalone/network/reverse_path_filtering.sh #3.3.7
     # shellcheck disable=SC1091
     source standalone/network/service_ufw.sh #3.5.1.3
+    #--------------------------[TESTING]------------------------
+    # shellcheck disable=SC1091
+    source standalone/network/suspect_packages.sh #3.3.4
+    # shellcheck disable=SC1091
+    source standalone/network/ipv6_routers.sh #3.3.9
+    # shellcheck disable=SC1091
+    source standalone/network/ip6tables_firewall_policy.sh #3.5.3.3.1
+    # shellcheck disable=SC1091
+    source standalone/network/loopback_ufw.sh #3.5.1.4
+    sysctl -p
     echo "----------| Finished METWORK |---------"
 }
 

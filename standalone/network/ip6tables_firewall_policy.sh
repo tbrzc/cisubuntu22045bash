@@ -9,16 +9,14 @@ source ./lib/common_check_root.sh
 
 
 
-CIS_CODE="3.3.7"
+CIS_CODE="3.5.3.3.1"
 
 
 setup() {
-    #sysctl -w net.ipv4.conf.all.rp_filter=1
-    #sysctl -w net.ipv4.conf.default.rp_filter=1
-    #sysctl -w net.ipv4.route.flush=1
-
-    echo "net.ipv4.conf.all.rp_filter=1" >> /etc/sysctl.conf
-    echo "net.ipv4.conf.default.rp_filter=1" >> /etc/sysctl.conf
+    ip6tables -P INPUT DROP
+    ip6tables -P OUTPUT DROP
+    ip6tables -P FORWARD DROP
+    ip6tables -L
 }
 
 
