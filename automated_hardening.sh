@@ -51,6 +51,14 @@ standalone_network_configuration() {
     source standalone/network/ip6tables_firewall_policy.sh #3.5.3.3.1
     # shellcheck disable=SC1091
     source standalone/network/loopback_ufw.sh #3.5.1.4
+    # shellcheck disable=SC1091
+    source standalone/network/icmp.sh #3.3.3
+    # shellcheck disable=SC1091
+    source standalone/network/origin_packages.sh #3.3.1
+    # shellcheck disable=SC1091
+    source standalone/network/tcp_cookies.sh #3.3.8
+    # shellcheck disable=SC1091
+    source standalone/network/ipforwarding_disabled.sh #3.2.2
     sysctl -p
     echo "----------| Finished METWORK |---------"
 }
