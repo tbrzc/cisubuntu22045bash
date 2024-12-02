@@ -15,13 +15,13 @@ standalone_initial_setup() {
     # shellcheck disable=SC1091
     source standalone/initial-setup/grub_config.sh #1.4.2
     # shellcheck disable=SC1091
-    source standaloneinitial-setup//cramfs.sh #1.1.1.1
+    source standalone/initial-setup/cramfs.sh #1.1.1.1
     # shellcheck disable=SC1091
     source standalone/initial-setup/grub_apparmor.sh #1.6.1.2
     # shellcheck disable=SC1091
     source standalone/initial-setup/core_dumps.sh #1.5.4
     # shellcheck disable=SC1091
-    source standalone/initial-setup/asrl.sh ##1.5.1
+    source standalone/initial-setup/aslr.sh ##1.5.1
     # shellcheck disable=SC1091
     source standalone/initial-setup/noexec_option.sh #1.1.8.2
     echo "----------| Finished INITIAL SETUP |---------"
@@ -31,7 +31,7 @@ standalone_services() {
     # shellcheck disable=SC1091
     source standalone/services/purge_telnet.sh #2.3.4
     # shellcheck disable=SC1091
-    source standalone/services/rsync_unistall.sh #2.2.16
+    source standalone/services/purge_rsync.sh #2.2.16
     echo "----------| Finished SERVICES |---------"
 
 }

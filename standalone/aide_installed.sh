@@ -12,10 +12,11 @@ CIS_CODE="6.1.1"
 setup() {
     apt install aide aide-common -y #no configuration
     aide -c /etc/aide/aide.conf --init
-    aide -c /etc/aide/aide.conf --checks
+    mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
+    aide -c /etc/aide/aide.conf --check
     aide_conf
     aide -c /etc/aide/aide.conf --update
-    mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
+    
 }
 
 main() {
