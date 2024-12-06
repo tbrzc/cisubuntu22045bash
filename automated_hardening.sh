@@ -125,7 +125,7 @@ standalone_acces_control_scripts() {
     # shellcheck disable=SC1091
     source standalone/acces-control/limit_su.sh #5.3.7
     # shellcheck disable=SC1091
-    source standalone/acces-control/failed_attemps.sh #5.4.2
+    # source standalone/acces-control/failed_attemps.sh #5.4.2
     # shellcheck disable=SC1091
     source standalone/acces-control/timeout_shell.sh #5.5.5
     # shellcheck disable=SC1091
